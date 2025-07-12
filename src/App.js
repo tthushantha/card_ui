@@ -18,6 +18,7 @@ export default function App() {
                 <Route path="/create" element={<CardForm />} />
                 <Route path="/stock" element={<StockUpdate />} />
                 <Route path="/reload" element={<ReloadUpdate />} />
+                <Route path="/stock/:cardId?" element={<StockUpdate />} />
             </Routes>
         </Router>
     );
