@@ -16,7 +16,9 @@ const features = [
     { title: "View All Cards", path: "/cards" },
     { title: "Create Prepaid Card", path: "/create" },
     { title: "Update Stock", path: "/stock" },
-    { title: "Reload Stock Update", path: "/reload" }, // Add this route
+    { title: "Reload Stock Update", path: "/reload/update" },
+    { title: "Create Reload Capital", path: "/reload/create" },
+    { title: "Check Threshold", path: "/reload/check" },
 ];
 
 export default function Dashboard() {
