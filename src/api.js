@@ -29,4 +29,4 @@ export const checkReloadThreshold = (provider) =>
     axios.get(`http://192.168.1.13:8080/api/reload/check?provider=${provider}`);
 
 export const getReloadProviders = () =>
-    axios.get("http://localhost:8080/api/reload");
+    axios.get("http://192.168.1.13:8080/api/reload");
