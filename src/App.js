@@ -10,12 +10,15 @@ import ReloadCapitalUpdate from "./components/ReloadCapitalUpdate";
 import ReloadThresholdCheck from "./components/ReloadThresholdCheck";
 
 // Placeholder component for reload update
-const ReloadUpdate = () => <h2 style={{ padding: 20 }}>Reload Stock Update Page (Coming Soon)</h2>;
+//const ReloadUpdate = () => <h2 style={{ padding: 20 }}>Reload Stock Update Page (Coming Soon)</h2>;
+import Layout from "./components/Layout"; // We'll create this component
+import ReloadUpdate from "./components/ReloadUpdate"; // Move placeholder to its own file
 
 export default function App() {
     return (
         <Router>
             <Routes>
+                <Route element={<Layout />}>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/cards" element={<CardList />} />
                 <Route path="/create" element={<CardForm />} />
@@ -25,6 +28,7 @@ export default function App() {
                 <Route path="/reload/create" element={<ReloadCapitalForm />} />
                 <Route path="/reload/update" element={<ReloadCapitalUpdate />} />
                 <Route path="/reload/check" element={<ReloadThresholdCheck />} />
+                </Route>
             </Routes>
         </Router>
     );
