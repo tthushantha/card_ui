@@ -1,18 +1,24 @@
 // src/App.js
 import React from "react";
-import CardForm from "./components/CardForm";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CardList from "./components/CardList";
+import CardForm from "./components/CardForm";
 import StockUpdate from "./components/StockUpdate";
-import { Container } from "@mui/material";
+import Dashboard from "./pages/Dashboard";
 
-function App() {
-  return (
-      <Container>
-        <CardForm />
-        <StockUpdate />
-        <CardList />
-      </Container>
-  );
+// Placeholder component for reload update
+const ReloadUpdate = () => <h2 style={{ padding: 20 }}>Reload Stock Update Page (Coming Soon)</h2>;
+
+export default function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/cards" element={<CardList />} />
+                <Route path="/create" element={<CardForm />} />
+                <Route path="/stock" element={<StockUpdate />} />
+                <Route path="/reload" element={<ReloadUpdate />} />
+            </Routes>
+        </Router>
+    );
 }
-
-export default App;

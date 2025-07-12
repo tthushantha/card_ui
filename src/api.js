@@ -1,7 +1,7 @@
 // src/api.js
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/cards";
+const BASE_URL = "http://192.168.1.13:8080/api/cards";
 
 export const getAllCards = () => axios.get(BASE_URL);
 export const getCardById = (id) => axios.get(`${BASE_URL}/${id}`);
