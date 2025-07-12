@@ -8,17 +8,23 @@ import {
     Card,
     CardActionArea,
     CardContent,
-    Paper
+    Paper,
 } from "@mui/material";
-import { Dashboard as DashboardIcon } from "@mui/icons-material";
+
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import AddCardIcon from "@mui/icons-material/AddCard";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import UpdateIcon from "@mui/icons-material/Update";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import SearchIcon from "@mui/icons-material/Search";
 
 const features = [
-    { title: "View All Cards", path: "/cards" },
-    { title: "Create Prepaid Card", path: "/create" },
-    { title: "Update Stock", path: "/stock" },
-    { title: "Reload Stock Update", path: "/reload/update" },
-    { title: "Create Reload Capital", path: "/reload/create" },
-    { title: "Check Threshold", path: "/reload/check" },
+    { title: "View All Cards", path: "/cards", icon: <CreditCardIcon fontSize="large" /> },
+    { title: "Create Prepaid Card", path: "/create", icon: <AddCardIcon fontSize="large" /> },
+    { title: "Update Stock", path: "/stock", icon: <InventoryIcon fontSize="large" /> },
+    { title: "Reload Stock Update", path: "/reload/update", icon: <UpdateIcon fontSize="large" /> },
+    { title: "Create Reload Capital", path: "/reload/create", icon: <MonetizationOnIcon fontSize="large" /> },
+    { title: "Check Threshold", path: "/reload/check", icon: <SearchIcon fontSize="large" /> },
 ];
 
 export default function Dashboard() {
@@ -37,14 +43,34 @@ export default function Dashboard() {
 
             <Grid container spacing={3}>
                 {features.map((feature, index) => (
-                    <Grid item xs={12} sm={6} md={3} key={index}>
-                        <Card elevation={4}>
-                            <CardActionArea onClick={() => navigate(feature.path)}>
-                                <CardContent sx={{ minHeight: 100, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                                    <Typography variant="h6" align="center">
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Card
+                            elevation={4}
+                            sx={{
+                                transition: "transform 0.2s, box-shadow 0.2s",
+                                "&:hover": {
+                                    transform: "translateY(-4px)",
+                                    boxShadow: 6,
+                                },
+                            }}
+                        >
+                            <CardActionArea onClick={() => navigate(feature.path)} sx={{ p: 2 }}>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        minHeight: 120,
+                                    }}
+                                >
+                                    <Box sx={{ mb: 1, color: "primary.main" }}>
+                                        {feature.icon}
+                                    </Box>
+                                    <Typography variant="subtitle1" align="center" fontWeight={500}>
                                         {feature.title}
                                     </Typography>
-                                </CardContent>
+                                </Box>
                             </CardActionArea>
                         </Card>
                     </Grid>
