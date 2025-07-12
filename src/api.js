@@ -13,3 +13,20 @@ export const updateStock = (id, quantityChange) =>
     axios.put(
         `${BASE_URL}/${id}/stock?quantityChange=${quantityChange}&modifiedBy=admin`
     );
+
+//------------------------------------------------------------------------------------
+
+// Create Reload Capital
+export const createReloadCapital = (data) =>
+    axios.post("http://192.168.1.13:8080/api/reload/create?createdBy=admin", data);
+
+// Update Reload Capital
+export const updateReloadCapital = (formData) =>
+    axios.post("http://192.168.1.13:8080/api/reload/update", new URLSearchParams(formData));
+
+// Check Threshold
+export const checkReloadThreshold = (provider) =>
+    axios.get(`http://192.168.1.13:8080/api/reload/check?provider=${provider}`);
+
+export const getReloadProviders = () =>
+    axios.get("http://localhost:8080/api/reload");
