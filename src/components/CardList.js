@@ -33,7 +33,7 @@ export default function CardList() {
 
     const handleConfirmDelete = async () => {
         try {
-            await axios.put(`http://localhost:8080/api/cards/${cardToDelete.id}?modifiedBy=admin`, {
+            await axios.put(`${process.env.REACT_APP_API_BASE_URL}/cards/${cardToDelete.id}?modifiedBy=admin`, {
                 stock: 99
             });
             alert(`Card "${cardToDelete.cardName}" marked as deleted (stock = 99)`);
